@@ -1,4 +1,4 @@
-# Django settings for biblioteca project.
+## Django settings for biblioteca project.
 import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
