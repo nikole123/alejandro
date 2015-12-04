@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Bibliotecarios
+{% endblock %}
+
+{% block content %}
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="True">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h3 id="myModalLabel"> Eliminar bibliotecario </h3>
+						</div>
+						<div class="modal-body">
+						<p>¿Está seguro que desea eliminar el bibliotecario  con nombre <span id="modal_name"></span>?</p>
+
+						</div>
+						<div class="modal-footer">
+							<form method="POST" id="frmEliminar">
+								{% csrf_token %}
+								<input type="hidden" id="modal_idProducto" name="product_id">
+								<button class="btn" data-dismiss="modal" aria-hidden="True">Cerrar</button>
+								<button type="submit" class="btn btn-danger">Eliminar</button>
+							</form>	
+						</div>
+					</div>
+    <h3>Lista de bibliotecarios</h3>
+
+{% if user.is_authenticated and user.is_superuser and user.is_staff %}
+	<p><a class="btn btn-info" href="{% url 'vista_registrar_bibliotecario' %}"><i class=" icon-user icon-white"></i> Registrar bibliotecario</a></p>
+{% endif %}
+   
+
+	{% if bibliotecarios %}
+	<table class = "table table-hover" id="tabla_productos">
+		<theader>
+			<tr>
+				<th>Bibliotecarios</th>
+			</tr>
+		</theader>			
+		{% for p in bibliotecarios %}
+			<tbody>
+				<tr id="tr{{p.id}}">
+					<td>{{ p.nombre }}</td>
+					{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+						<td>
+								<a class = "btn btn-info" href="/bibliotecario/{{ p.id }}"> <li class= "icon-search"></li> Ver </a>
+						</td>
+						<td>
+						</td>
+						
+						    <td>
+									<a class = "btn btn-warning" href="/edit/usuario/{{ p.id }}"> <li class= "icon-pencil"></li>  Editar </a>
+							</td>
+							<td><a href="#myModal" role="button" class="btn btn-danger delete" data-toggle="modal" id="{{p.id}}" data-name="{{p.nombre}}"><i class="icon-trash icon-white"></i>Eliminar</a></td>
+						
+					{% endif %}
+
+				</tr>
+			</tbody>
+		{% endfor %}
+	</table>
+	{% else %}
+		<h2>No existen bibliotecarios</h2>
+
+	{% endif %}
+<a class = "btn btn-inverse" href="/administrar/"></li>  Regresar </a>
+
+{% endblock %}

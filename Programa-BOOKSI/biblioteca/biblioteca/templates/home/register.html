@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Registro
+{% endblock %}
+
+{% block content %}
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2015",
+      dateFormat: 'dd/mm/yy',
+      // You can put more options here.
+
+    });
+  });
+</script>
+
+
+		<center> <h4> Registro de usuario </h4> </center>
+{% if mensaje %}
+
+  <div class="alert alert-danger" class = "alert fade in">
+    <strong>
+      {{ mensaje }}
+    </strong>
+  </div>
+{% endif %}
+		<form action="." method = "POST" enctype="multipart/form-data">
+			<div class= "alert alert-info">
+				{% csrf_token %}
+
+				{{ form_a.as_p }}
+				{{ form_b.as_p }}
+				
+				
+				<input class="btn btn-success" type="submit" value="Registrar" >
+				<input  type="reset" value="Limpiar">
+
+				<a class="btn btn-danger" href="{% url 'vista_usuarios' %}">Cancelar</a>
+			</div>
+		</form>	
+
+
+
+
+
+	<!-- Button to trigger modal -->
+	
+
+	<!-- Modal -->
+	{% if m %}
+	<body onload="cargar()">
+		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			
+			</div>
+			<div class="modal-body">
+				<p>El usuario se ha agregado satisfactoriamente   </p>
+			</div>
+			<div class="modal-footer">
+				<a class="btn btn-info" href="{% url 'vista_login' %}">Aceptar</a>
+				
+			</div>
+		</div>
+	</body>
+	{% endif %}
+	<script>
+function cargar()
+{
+	//alert("Presiona el boton Aceptar si deseas agregar el usuario");
+	$('#myModal').modal('show');
+	
+
+	//document.getElementById("content").innerHTML='<object type="type/html" data="home.html"></object>'
+}
+</script>
+
+{% if mensaje2 %}
+
+  <div class="alert alert-danger" class = "alert fade in">
+    <strong>
+      {{ mensaje2 }}
+    </strong>
+  </div>
+{% endif %}
+
+
+
+{% endblock %}
+

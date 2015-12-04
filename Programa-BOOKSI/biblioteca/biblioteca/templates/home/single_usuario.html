@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Usuario
+{% endblock %}
+
+{% block content %}
+
+		<div class="alert alert-info ">
+			<p><b>Nombre de usuario: </b> {{usuario.user.username}}</p>
+			<p><b>Correo electrónico: </b> {{usuario.user.email}}</p>
+		</div>
+		<br>
+		<div class="alert alert-info ">
+			<h3> Usuario: </h3>
+			
+				<p>  {% if usuario.tiene_prestamo == True %}
+										<b> Usuario con prestamo </b>
+									{% else %}
+										<b> Usuario sin prestamo </b>
+									{% endif %}</p>
+			
+		</div>
+		<div class="alert alert-info ">
+			<br>
+			<p>	<b>Nombre: </b> {{ usuario.nombre }}</p>
+			<p> <b>Apellidos: </b>{{ usuario.apellido }}</p>
+			<p> <b>Identificación: </b>{{ usuario.identificacion }}</p>
+			<p> <b>Tipo de identificación: </b>{{ usuario.tipo_id }}</p>
+			<p> <b>Ciudad: </b>{{ usuario.ciudad}}</p>
+			<p> <b>Fecha de nacimiento: </b>{{ usuario.fecha_nac }}</p>
+			<p> <b>Telefono: </b>{{ usuario.telefono }}</p>
+			<p> <b>Dirección: </b>{{ usuario.direccion }}</p>
+			<p> <b>Género: </b>{{ usuario.genero}}</p>
+			<p> <b>Tipo de usuario: </b>{{ usuario.tipo_usuario}}</p>
+		</div>
+		<a  class="btn btn-primary" href="/usuarios/">Usuarios</a>
+
+		{% if user.is_authenticated and user.is_staff and user.is_superuser %}	
+			<a class="btn btn-warning" href="/edit/usuario/{{ usuario.id }}">  Editar</a>
+		{% endif %}
+{% endblock %}	

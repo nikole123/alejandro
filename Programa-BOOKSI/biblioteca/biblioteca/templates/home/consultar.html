@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Consultar Usuario
+{% endblock %}
+
+
+{% block content %}
+	<h4><center> Ingrese la identificación del usuario que desea buscar:</center></h4>
+	<form action="." method="POST" align="center">
+		{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit" class="btn btn-success" >Consultar usuario</button>
+	</form>
+
+	
+	{% if usuario and mensaje  %}
+
+	
+
+		<div class="alert alert-success" class "alert fade in">
+			<button type="button " class="close" data-dismiss="alert">&times;</button>
+		
+			<strong>
+				<center>{{ mensaje }}</center>
+			</strong>
+
+				<center><p><b>Nombre y </b> <b>Apellidos:</b>
+				<h3>{{ usuario.nombre }} {{ usuario.apellidos }}</h3>
+				
+				<p> <b>Identificacion: </b>{{ usuario.identificacion }}</p>
+				<p> <b>Ciudad: </b>{{ usuario.ciudad}}</p>
+				<p> <b>Telefono: </b>{{ usuario.telefono }}</p>
+				<p> <b>Direccion: </b>{{ usuario.direccion }}</center></p>
+			{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+				<a class="btn btn-warning" href="/edit/usuario/{{ usuario.id }}">  Editar</a>
+			{% endif %}
+		
+
+			
+		</div>	
+	
+	{% else %}
+		{% if mensaje  %}
+
+			
+				<div class="alert alert-danger" class "alert fade in">
+					<button type="button " class="close" data-dismiss="alert">&times;</button>
+				
+					<strong>
+				
+						<center>{{ mensaje }}</center>
+					</strong>
+				</div>
+		
+		{% endif %}
+	{% endif %}
+	<a class="btn btn-primary" href="{% url 'vista_administrar' %}">Regresar</a>
+	
+{% endblock %}

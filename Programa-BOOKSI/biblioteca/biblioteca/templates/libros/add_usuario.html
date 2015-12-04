@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+  Agregar un nuevo usuario
+{% endblock %}
+
+{% block content %}
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2015",
+      dateFormat: 'dd/mm/yy',
+      // You can put more options here.
+
+    });
+  });
+  </script>
+  <center> <h4> Registrar usuario </h4>  </center>
+  <form action="." method="POST" align="center">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-success"> Guardar </button>
+    <input class="btn btn-default" type="reset" value="Limpiar">
+    <a class="btn btn-danger" href="{% url 'vista_usuarios' %}">Cancelar</a>
+  </form>
+  <br>
+
+  {{ info }}
+  
+
+{% endblock %} 

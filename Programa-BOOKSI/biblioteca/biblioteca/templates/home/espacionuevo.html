@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+<link rel="shortcut icon" href="media/images/logo.png" type="image/png" />
+{% block title %}
+	Espacios Nuevos
+{% endblock %}
+<link rel="shortcut icon" href="media/images/logo.png" type="image/png" />
+	{% block content %}
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2015",
+      dateFormat: 'dd/mm/yy',
+      // You can put more options here.
+
+    });
+  });
+  </script>
+	<center>
+	<h3><a align="center"><font face="Arial "  color="black">Ingrese la fecha</font></a></h3>
+	
+
+	<font align="center" face="Comic Sans Ms"><h3><form action="." method = "POST">
+		{% csrf_token %}
+			
+		{{ form.as_p }}
+		{% if user.is_authenticated %}
+		
+
+			
+		{% endif %}
+		<!--a class  = "btn btn-info" href="/libronuevo/{{ p.id}}">buscar </a-->
+		<input type = "submit" class  = "btn btn-info" value = "BUSCAR" />
+	
+
+	</form></h3></font>
+	{{ info }}
+	<img align="center" src="/media/images/gif1+ANCIANO+LEYENDO.gif"/>
+	<br>
+		<h4><font face="Comic Sans MS" color="black" align="center">Espacios encontrados</font></h4>
+
+	<!--con el sgte for aperece la lista de los libros  -->
+			
+			<h4>{{mensaje}}</h4>
+			
+	{% for l in nuevos %}
+		{{mensaje}}
+		{{ l.nombre_espacio }}
+		<br>
+	
+	{% endfor %}
+	</center>
+	{% endblock %}
+
+<!--input type="text" name="dia" size="2" maxlength="2" />/<input type="text" name="mes" size="2" maxlength="2" />/<input type="text" name="año" size="2" maxlength="4" /><br/>
+	<h1><font face="algerian">A</font></h1>
+	<input type="text" name="dia" size="2" maxlength="2" />/<input type="text" name="mes" size="2" maxlength="2" />/<input type="text" name="año" size="2" maxlength="4" /><br/>

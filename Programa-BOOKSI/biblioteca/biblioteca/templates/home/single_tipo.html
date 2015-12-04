@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title> Lista de usuarios </title>
+{% endblock %}
+
+{% block content %}
+	<h3>Tipo de usuario:</h3>
+	<h3>{{ tipos_usuarios.nombre}}</h3>
+	<td><a class="btn btn-inverse" href="/tipos_usuarios/">Mostrar tipos de usuarios</a></td>
+	<br>
+	
+{% endblock %}

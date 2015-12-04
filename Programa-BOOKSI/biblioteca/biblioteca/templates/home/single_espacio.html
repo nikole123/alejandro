@@ -1,0 +1,76 @@
+{%extends 'base.html' %}
+
+
+{% block title %}
+	Espacio
+{% endblock %}
+
+
+{% block content %}		
+		<table class = "table table-hover ">
+				<theader>
+
+					<center>
+					<h3>{{ espacio.nombre_espacio }}</h3>
+					<br>
+					{% if espacio.imagen %} 
+						<img src = "/media/{{ espacio.imagen }}" width = "200px" alt="La imagen no está disponible" heigth = "80px"> </center>
+					{% endif %}
+  
+				</theader>
+					<tbody>
+						<tr>
+							<td><b>Código				<br>{{ espacio.codigo }}</td>
+
+							<td><b>Estado</b> 					<br>{{ espacio.estado }}</p></td>
+								<td><p> <b>Disponible:   </b> 
+								{% if espacio.disponibilidad = True and espacio.estado_prestamo = Devuelto %}  <!-- SI LIBRO ESTA EN "TRUE", permite el prestamo del libro, sino... -->
+
+									Si 
+								{% else %}
+									No
+								{% endif %}
+								</p> </td>
+								<td> <b> Observación: 				<br>{{ espacio.observacion }}</td>	
+							{% if espacio.disponibilidad = True %}  <!-- SI LIBRO ESTA EN "TRUE", permite el prestamo del espacio, sino... -->
+							{% else %}
+								<h2> El espacio no está disponible </h2>
+							{% endif %}
+							
+							
+						</tr>
+							
+							<tr>	
+								
+
+
+							<tr>
+						</tr>
+					</tbody>
+		</table>
+					 
+
+		{% if user.is_authenticated and user.is_staff and user.is_superuser %}	
+			<a class ="btn btn-warning" href= "/edit/espacio/{{espacio.id}}"> <li class= "icon-pencil"></li> Editar </a>
+			<a class ="btn btn-primary" href="/reservar/{{ espacio.id }}"> Reservar espacio </a>
+		{% endif %}	
+
+			<a class="btn btn-primary" href="/espacios/">Lista de espacios</a>
+		
+		
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

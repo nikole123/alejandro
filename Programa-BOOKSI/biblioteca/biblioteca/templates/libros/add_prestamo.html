@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Agregar préstamo
+{% endblock %}
+
+
+
+{% block content %}
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2015",
+      dateFormat: 'dd/mm/yy',
+      // You can put more options here.
+
+    });
+  });
+</script>
+  <center> <h4> Realizar préstamo </h4>  </center>
+	<form action="." method="POST" align="center">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input class="btn btn-success" type="submit" value="Guardar">
+		<input class="btn btn-default" type="reset" value="Limpiar">
+	</form>
+	<br>
+
+{{ informacion }}
+{% endblock %} 

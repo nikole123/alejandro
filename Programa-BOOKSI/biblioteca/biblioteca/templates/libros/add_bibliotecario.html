@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}	
+	Agregar bibliotecario
+{% endblock %}
+
+{% block content %}
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2015",
+      dateFormat: 'dd/mm/yy',
+      // You can put more options here.
+
+    });
+  });
+  </script>
+<center><h4> Registrar bibliotecario </h4> </center>
+	<form action="." method="POST" align="center">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input class="btn btn-success" type="submit" value="Guardar">
+		<input class="btn btn-default" type="reset" value="Limpiar">
+		
+	</form>
+
+{% if m %}
+  <body onload="cargar()">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      
+      </div>
+      <div class="modal-body">
+        <p>El bibliotecario se ha agregado satisfactoriamente   </p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-info" href="{% url 'vista_bibliotecarios' %}">Aceptar</a>
+        
+      </div>
+    </div>
+  </body>
+  {% endif %}
+  <script>
+function cargar()
+{
+  //alert("Presiona el boton Aceptar si deseas agregar el usuario");
+  $('#myModal').modal('show');
+  
+
+  //document.getElementById("content").innerHTML='<object type="type/html" data="home.html"></object>'
+}
+</script>
+
+	<br>
+	
+	{{ info }}
+	<a href="/bibliotecarios/">Mostrar la lista de bibliotecarios</a>
+{% endblock %}

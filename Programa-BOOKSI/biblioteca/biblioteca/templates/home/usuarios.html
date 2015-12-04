@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}
+	 Usuarios
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Modal -->
+					
+					<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="True">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h3 id="myModalLabel"> Eliminar usuario </h3>
+						</div>
+						<div class="modal-body">
+						<p>¿Esta seguro que desea eliminar el usuario  con nombre <span id="modal_name"></span>?</p>
+
+						</div>
+						<div class="modal-footer">
+							<form method="POST" id="frmEliminar">
+								{% csrf_token %}
+								<input type="hidden" id="modal_idProducto" name="product_id">
+								<button class="btn" data-dismiss="modal" aria-hidden="True">Cerrar</button>
+								<button type="submit" class="btn btn-danger">Eliminar</button>
+							</form>	
+						</div>
+					</div>
+
+
+
+
+	<h3> Usuarios</h3>
+	{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+		<a class="btn btn-primary" href="{% url 'vista_registro' %}">Agregar un Nuevo Usuario</a>
+	{% endif %}
+
+	{% if usuarios %} 
+		<table class = "table table-hover" id="tabla_productos">	
+			<theader>
+				<th>Usuario</th>
+				<th>Tipo de Usuario</th>
+				<th>Identificación</th>
+				
+			</theader>
+
+		{% for p in usuarios %}
+			<tbody>
+				<tr id="tr{{p.id}}">
+					<td>{{ p.user }}   </td>
+					<td>{{ p.tipo_usuario}} </td>
+					<td>{{ p.identificacion}} </td>
+					<td><a class="btn btn-info" href="/usuario/{{p.id}}" > Ver </a ></td>
+					{% if user.is_authenticated and user.is_staff and user.is_superuser %}	
+					<td><a class="btn btn-warning" href="/edit/usuario/{{ p.id }}">  Editar</a></td>  
+					
+					<!-- Button to trigger modal -->
+					<td><a href="#myModal" role="button" class="btn btn-danger delete" data-toggle="modal" id="{{p.id}}" data-name="{{p.nombre}}"><i class="icon-trash icon-white"></i>Eliminar</a></td>
+					<!--<a href="#{{p.id}}" role="button"  data-toggle="modal" class = "btn btn-danger">Eliminar</a>-->
+					{% endif %}
+				</tr>
+			</tbody>
+		{% endfor %}
+		</table>
+	{% else %}
+		<h2> No Existen Usuarios :(</h2>
+	{% endif %}
+	<a class = "btn btn-inverse" href="/administrar/"></li>  Regresar </a>
+
+{% endblock %} 

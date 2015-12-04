@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<link rel="shortcut icon" href="media/images/logo.png" type="image/png" />
+	<title>{% block title %} Bienvenidos {% endblock %} </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="media/images/logo.png" type="image/png" />
+	<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/media/css/excite-bike/jquery-ui-1.10.3.custom.css">
+
+	<script src="/media/js/ajax.js"></script>
+	<script src="/media/js/jquery.js"></script>
+	<script src="/media/js/jquery-ui.js"></script>
+	<script src="/media/js/jquery.form.min.js "></script>
+	<script src="/media/js/demo.js "></script>
+	<script src="/media/js/bootstrap-collapse.js "></script>
+	<script src="/media/bootstrap/js/bootstrap.js"></script>
+
+
+	<script type="text/javascript">
+        $(document).on('ready',function(){
+            $.ajax({
+            	type:"GET",
+              	contentType:"application/json; charset=utf-8",
+              	dateType:"json",
+              	url:"/ws/espacio/",
+              	success:function(response){
+              		var i = (response.length-1)-2;
+              		for(i;i<=(response.length-1);i++){
+              			$('#espacionuevo').append("<li>"+response[i].fields.nombre_espacio+"</li> <br>")				
+					}
+				}	
+			});	
+		});
+	</script>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-static-top navbar-fixed-top"> 
+		<div class ="navbar-inner">
+			
+		<div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">	
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+<!--b!suI97mJHSsK-->
+			<a class = "brand" href = "{% url 'vista_principal' %}"> LICEO </a>
+			<div class="nav-collapse collapse">
+				<ul class = "nav">
+					{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+						<li><a href="{% url 'vista_administrar'%}">Administrador</a></li>
+					{% endif %}
+					{% if user.is_authenticated and user.usuario.tipo_usuario.nombre != "bibliotecario" %}
+						<li><a href="{% url 'vista_mis_reservas'%}">Mis reservas</a></li>
+					{% endif %}
+				</ul>
+
+				<ul class="nav pull-right">
+					{% if user.is_authenticated %}
+						<li><a href = "{% url 'vista_logout' %}">Cerrar sesión</a></li>
+					{% else %}
+						<li><a href = "{% url 'vista_login' %}"><i class="icon-user icon-white"> </i> Iniciar sesión</a></li>
+					{% endif %}
+
+
+
+					{% if user.is_authenticated %}
+						<li> 
+							{% if user.usuario.photo %}
+								<img class="img-circle" src = "/media/{{ user.usuario.photo }}" width = "45px"  heigth = "45px"> 
+							{% endif %}
+						</li>
+							<li>
+								<a href="/edit/usuario/{{user.usuario.id}}">{{ user.username }}</a> 
+							</li>
+           			{% endif %}
+							  
+
+				</ul>
+			</div><!--/.nav-collapse -->
+
+
+        </div>
+    </div>
+    </div>
+
+	<div id="myCarousel" class="carousel slide">
+	  <!-- Carousel items -->
+	  	<div class="carousel-inner">
+		    
+		   <div class="active item"> <center>
+		    	<a href="/registro/">
+		    		<img src="/media/images/fondo1.png">
+				</a>
+			    <div class="carousel-caption">
+			    	<a href="/registro/"><h4> Registrarse </h4> </a>
+			    </div></center>
+		    </div>
+
+		    <div class="item"> <center>
+		    	<img src="/media/images/fondo2.png">
+			    <div class="carousel-caption">
+			    	<h4>BOOKSI</h4>
+			    </div></center>
+		    </div>
+
+		    <div class="item"> <center>
+		    	<img src="/media/images/fondo3.png">
+			    <div class="carousel-caption">
+			    	<h4>Contáctenos para más información</h4>
+			    </div></center>
+		    </div>
+		    
+		</div>
+	  <!-- Carousel nav -->
+	  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div>	
+	
+	<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span9">
+					<div class="well">
+						{% block content %}
+						{% endblock %}
+					</div>
+				</div>
+				<div class="span3">
+					<div class="well sidebar-nav">
+		            		  <center><li class="nav-header"><h4>Redes sociales</h4></li></center>
+		            		  
+		            		  <p align="justify">
+		            	        <img src="/media/images/social_facebook.png"  width = "40px"  heigth = "40px">
+		            			<a href="https://www.facebook.com/booksiapp" target="_blank">LICEO</a>
+								<br>            			
+		            		  </p>
+		            		</ul>
+						</div><!--/.well -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				      <hr>
+      <footer class="well" align="center">
+        &copy; SENA CTPI 2015 ADSI <b>661169</b>
+      </footer>
+			</div>
+		</div> 
+	</body>
+</html>

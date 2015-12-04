@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Préstamos
+{% endblock %} 
+{% block content %}
+
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2015",
+      dateFormat: 'dd/mm/yy',
+      // You can put more options here.
+
+    });
+  });
+  </script>
+
+	<h3> Préstamos</h3>
+	<!-- <a <a class="btn btn-inverse"  href="/add/prestamo/">  Agregar Prestamo  </a> -->
+	{% if prestamos %}
+		<table class="table table-hover">
+				<tr>
+					<td> <b> Espacio </td> 
+					<!--td> <b> Estado del Prestamo </td-->
+					<td> <b> Estado del préstamo </td> <!--td> <b> <u> Estado del Prestamo </td-->
+					<td> <b> Usuario </td> <!--td> <b> <u> Estado del Prestamo </td-->
+					
+				</tr>
+		
+			{% for t in prestamos %}
+				<tbody>
+				<div class="success">
+					<tr>		
+						<td> <p> {{t.espacio}} </td> 
+						
+						<td> <p> {{t.estado_prestamo}} </p></td>
+						<td> <p> {{t.usuario}} </p></td>
+					
+					
+				
+
+						{% if t.estado_prestamo = 'Efectuado' or t.estado_prestamo = 'Reservado' %} <!-- SI LIBRO ESTA EN "TRUE", permite el prestamo del libro, sino... -->
+							{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+								<td> <a class ="btn btn-info" href="/prestamo/{{ t.id }}">Ver</a></td>
+								<td> <a class ="btn btn-warning" href="/edit/prestamo/{{ t.id }}">  Editar  </a> </td>
+								<td><a class ="btn btn-danger" href="/cancelar/prestamo/{{ t.id }}">  </li> Cancelar préstamo</a></td>
+							{% endif %}
+						{% endif %}
+
+
+						
+						{% if t.estado_prestamo = 'Reservado' %}
+							{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+								<td> <a class ="btn btn-success" href="/aprobar/prestamo/{{ t.id }}"> <b> Aprobar préstamo </td>
+							{% endif %}
+						{% endif %}
+					{% if user.is_authenticated and user.is_staff and user.is_superuser %}		
+						{% if t.estado_prestamo = 'Efectuado' and t.espacio.disponibilidad = False and t.estado_prestamo != 'Devuelto'%}
+							<td> <a class ="btn btn-inverse" href="/retornar/espacio/{{ t.id }}"> <b> Retornar espacio </td>
+						{%else%}
+					{% endif %}	
+	{% endif %}
+						
+						
+					</tr>
+				</div>
+				</tbody>
+			{% endfor %}
+
+		</table>
+				
+
+		{% else %}
+		<h2> No existen prestamos....</h2>
+		{% endif %}
+		<a class = "btn btn-inverse" href="/administrar/"></li>  Regresar </a>
+
+{% endblock %}

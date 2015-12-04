@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Espacios
+{% endblock %}
+
+{% block content %}
+
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="True">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel"> Eliminar espacio</h3>
+		</div>
+		<div class="modal-body">
+		<p>¿Está seguro que desea eliminar <span id="modal_name"></span>?</p>
+
+		</div>
+		<div class="modal-footer">
+			<form method="POST" id="frmEliminar">
+				{% csrf_token %}
+				<input type="hidden" id="modal_idProducto" name="product_id">
+				<button class="btn" data-dismiss="modal" aria-hidden="True">Cerrar</button>
+				<button type="submit" class="btn btn-danger">Eliminar</button>
+			</form>	
+		</div>
+	</div>
+
+	<h3>Libros</h3>
+	{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+		<a <a class="btn btn-info"  href= "/add/espacios/{{p.id}}"> <li class= "icon-plus"></li> Agregar espacio</a> 
+	{% endif %}
+	{% if espacios %}
+		<br>
+		<br>
+		<table class="table table-hover" id="tabla_productos">
+				<theader>
+					<th>Nombre espacio</th>
+					<th>Código</th>
+					<th>Disponibilidad</th>
+				</theader>
+		{% for p in libros %}
+			<tbody>
+				<tr id="tr{{p.id}}">
+					<td> {{p.nombre_espacio}} </td>
+					<td> {{p.codigo}} </td>
+					<td> 
+						{% if p.disponibilidad %}
+							Disponible
+						{% else %}
+							No Disponible
+						{% endif %}
+					</td>
+
+
+						<td> <a class ="btn btn-info" href="/espacio/{{p.id}}"> <li class= "icon-search"></li> Ver </a> </td>
+					{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+						<td> <a class ="btn btn-warning" href= "/edit/espacio/{{p.id}}"> <li class= "icon-pencil"></li> Editar </a> </td>
+						<td><a href="#myModal" role="button" class="btn btn-danger delete" data-toggle="modal" id="{{p.id}}" data-name="{{p.nombre_espacio}}"><i class="icon-trash icon-white"></i>Eliminar</a></td>
+						
+					{% endif %}
+
+
+				</tr>
+			</tbody>
+			{% endfor %}
+		</table>
+	{% else %}
+		<h2> No hay espacios registrados </h2>
+	{% endif %}
+		<a class = "btn btn-inverse" href="/administrar/"></li>  Regresar </a>
+{% endblock %}

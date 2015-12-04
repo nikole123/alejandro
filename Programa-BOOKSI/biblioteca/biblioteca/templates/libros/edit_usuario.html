@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Editar  usuario
+{% endblock %}
+
+{% block content %}
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2015",
+      dateFormat: 'dd/mm/yy',
+      // You can put more options here.
+
+    });
+  });
+  </script>
+  	<center> <h4> Editar usuario</h4> </center>
+	<form action="." method="POST" align="justify" enctype="multipart/form-data">
+		<div class="alert alert-info ">
+			{% csrf_token %}
+			{{ form_user.as_p }}
+			{{ form.as_p }}
+			<button type="submit" class="btn btn-success"> Guardar cambios </button>
+			<a class="btn btn-danger" href="{% url 'vista_usuarios' %}">Cancelar</a>
+		</div>
+	</form>
+
+	<br>
+
+	{{ info }}
+	
+{% endblock %} 
+
+

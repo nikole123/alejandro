@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	login
+{% endblock %}
+
+{% block content %}
+	<center> <h4> Iniciar sesión </h4> </center>
+	<form action="." method="POST" align="center">
+		{% csrf_token %}
+		{{mensaje}}
+		{{form.as_p}}
+		<input class="btn btn-primary" type="submit" value="Ingresar"/>
+		<a class ="btn btn-info" href="{% url 'vista_registro' %}">Registrarse</a>
+	</form>
+{% endblock %}

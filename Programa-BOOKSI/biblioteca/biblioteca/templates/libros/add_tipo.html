@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Agregar tipo de usuario 
+
+{% endblock %}
+
+{% block content %}
+	<center> <h4>Agregar tipo de usuario</h4> </center>
+	<form action="." method="POST" align="center">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input class="btn btn-success" type="submit" value="Guardar">
+		<input class="btn btn-default" type="reset" value="Limpiar">
+		<td><a class="btn btn-danger" href="/tipos_usuarios/">"Cancelar" </a></td>
+	</form>
+	
+{% if m %}
+  <body onload="cargar()">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      
+      </div>
+      <div class="modal-body">
+        <p>El tipo de usuario se ha agregado satisfactoriamente   </p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-info" href="{% url 'vista_tipos_usuarios' %}">Aceptar</a>
+        
+      </div>
+    </div>
+  </body>
+  {% endif %}
+  <script>
+function cargar()
+{
+  //alert("Presiona el boton Aceptar si deseas agregar el usuario");
+  $('#myModal').modal('show');
+  
+
+  //document.getElementById("content").innerHTML='<object type="type/html" data="home.html"></object>'
+}
+</script>
+
+
+
+{% endblock %}
