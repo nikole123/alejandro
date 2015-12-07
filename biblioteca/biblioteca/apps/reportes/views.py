@@ -147,7 +147,7 @@ def generar_pdf_usuarios_mes(request):
 
 
     header = Paragraph("Fecha del reporte: "+str(date.today()), styles['Heading1'])
-    header2 = Paragraph("Reporte de los usuarios que prestaron libros en el mes "+str(fecha_usuarios.month)+" del "+str(fecha_usuarios.year), styles['Normal'])
+    header2 = Paragraph("Reporte de los usuarios que prestaron espacio en el mes "+str(fecha_usuarios.month)+" del "+str(fecha_usuarios.year), styles['Normal'])
     salto_linea = Paragraph("\n\n", styles["Normal"])
 
 
@@ -162,7 +162,7 @@ def generar_pdf_usuarios_mes(request):
 
 
     
-    headings = ('Fecha préstamo', 'Usuario', 'Nombre del libro', 'Fecha devolución')
+    headings = ('Fecha préstamo', 'Usuario', 'Nombre del espacio', 'Fecha devolución')
     mes = x.month
     anio = x.year
     n = mes 
@@ -171,7 +171,7 @@ def generar_pdf_usuarios_mes(request):
   
 
     
-    allreportes = [(i.fecha_prestamo, i.usuario.nombre, i.libro.nombre_libro, i.fecha_devolucion) for i in Prestamo.objects.filter(fecha_prestamo__month =mes,fecha_prestamo__year = anio)]
+    allreportes = [(i.fecha_prestamo, i.usuario.nombre, i.espacio.nombre_espacio, i.fecha_devolucion) for i in Prestamo.objects.filter(fecha_prestamo__month =mes,fecha_prestamo__year = anio)]
     #print allreportes
 
     t = Table([headings] + allreportes)
@@ -186,7 +186,7 @@ def generar_pdf_usuarios_mes(request):
 
     #GRAFICA DE BARRAS
 
-    titulo1 = Paragraph("Gráfica comparativa de usuarios que prestaron libros en el mes "+str(fecha_usuarios.month)+" y el mes anterior a éste. ", estilo['title'])
+    titulo1 = Paragraph("Gráfica comparativa de usuarios que prestaron espacios en el mes "+str(fecha_usuarios.month)+" y el mes anterior a éste. ", estilo['title'])
     drawing = Drawing(400, 200)
     data = [(u1, u2)]
     bc = VerticalBarChart()

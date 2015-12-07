@@ -9,7 +9,7 @@ urlpatterns = patterns('biblioteca.apps.libros.views',
 		url(r'^reservar/(?P<id_libro>.*)/$','reservar_view',name = 'vista_reservar'),
 		url(r'^aprobar/prestamo/(?P<id_prestar>.*)/$','aprobar_prestamo_view',name = 'vista_aprobar_prestamo'),
 		url(r'^cancelar/prestamo/(?P<id_prestar>.*)/$','cancelar_prestamo_view',name = 'vista_cancelar_prestamo'),
-		url(r'^retornar/libro/(?P<id_prestar>.*)/$','retornar_libro_view',name = 'vista_retornar_libro'),
+		url(r'^retornar/espacio/(?P<id_prestar>.*)/$','retornar_espacio_view',name = 'vista_retornar_espacio'),
 		
 		#url(r'^prestar/(?P<id_prestar>.*)/$','prestar_view',name = 'vista_prestar'),
 		

@@ -99,7 +99,7 @@ class Bibliotecario (models.Model):
 class Prestamo (models.Model):
 	fecha_prestamo 		=  models.DateField(auto_now =True) # 
 	fecha_devolucion	=  models.DateField() 
-	espacio 				=  models.ForeignKey(Espacio)#
+	espacio 			=  models.ForeignKey(Espacio)#
 	bibliotecario   	=  models.CharField(max_length=100 , null = True, blank = True) 
 	usuario 			=  models.ForeignKey(Usuario)# captura  usuario que reservo el libro 
 	estado_prestamo 	=  models.CharField(max_length = 200, choices = estado_prestamo)#

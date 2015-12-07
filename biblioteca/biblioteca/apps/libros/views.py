@@ -111,7 +111,7 @@ def cancelar_prestamo_view (request, id_prestar):
 	else:
 		return HttpResponseRedirect ('/')
 #PASO 4 VISTA PARA RETORNAR  LIBRO EN EL CUAL CAMBIE EL ESTADO DEL LIBRO A DISPONIBLE
-def retornar_libro_view(request, id_prestar):
+def retornar_espacio_view(request, id_prestar):
 	if request.user.is_authenticated and request.user.is_staff:
 		usu = ""
 		pres = Prestamo.objects.get(pk = id_prestar)
@@ -149,8 +149,6 @@ def prestar_view(request, id_prestar):  #modificado el 17 de abril Funcion prest
 				return HttpResponseRedirect ('/prestamo/%s'%(pres.id))
 	else:
 		return HttpResponseRedirect ('/')
-#	ctx = {'form':formulario, 'informacion':info}
-#	return render_to_response('libros/edit_prestamo.html',ctx , context_instance = RequestContext(request))
 
 ''' Fin bloque Reser'''
 
