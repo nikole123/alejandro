@@ -46,15 +46,20 @@
             <span class="icon-bar"></span>
           </a>
 <!--b!suI97mJHSsK-->
-			<a class = "brand" href = "{% url 'vista_usuarios' %}"> LICEO </a>
+			<a class = "brand" href = "{% url 'vista_info' %}"> LICEO </a>
 			<div class="nav-collapse collapse">
 				<ul class = "nav">
 					{% if user.is_authenticated and user.is_staff and user.is_superuser %}
-						<li><a href="{% url 'vista_administrar'%}">Administrador</a></li>
 					{% endif %}
 					{% if user.is_authenticated and user.usuario.tipo_usuario.nombre != "bibliotecario" %}
-						<li><a href="{% url 'vista_espacios'%}"> Espacios </a></li>
-						<li><a href="{% url 'vista_mis_reservas'%}">Mis reservas</a></li>
+						<li><a  href="{% url 'vista_espacios'%}"> Espacio </a></p>
+						<li><a href="{% url 'vista_usuarios' %}">Usuarios</a></p>
+						<li><a href="{% url 'vista_consultar_usuario_id' %}">Consultar usuario</a></p>
+						<li><a href="{% url 'vista_tipos_usuarios' %}">Tipo de usuarios</a></p>
+						<li><a  href="{% url 'vista_bibliotecarios'%}"> Bibliotecario </a></p>
+						<li><a  href="{% url 'vista_reporte_usuarios_mes' %}"> Reporte usuarios </a></p>
+						<li><a  href="{% url 'vista_prestamos'%}"> Préstamos </a>
+						<li><a  href="{% url 'vista_reservas'%}"> Reservas </a></p>
 					{% endif %}
 				</ul>
 
@@ -68,14 +73,7 @@
 
 
 					{% if user.is_authenticated %}
-						<li> 
-							{% if user.usuario.photo %}
-								<img class="img-circle" src = "/media/{{ user.usuario.photo }}" width = "45px"  heigth = "45px"> 
-							{% endif %}
-						</li>
-							<li>
-								<a href="/edit/usuario/{{user.usuario.id}}">{{ user.username }}</a> 
-							</li>
+						
            			{% endif %}
 							  
 
@@ -93,24 +91,10 @@
 		    
 		   <div class="active item"> <center>
 		    	<a href="/registro/">
-		    		<img src="/media/images/fondo1.png">
+		    		<img src="/media/images/fondo1.jpeg">
 				</a>
-			    <div class="carousel-caption">
+				 <div class="carousel-caption">
 			    	<a href="/registro/"><h4> Registrarse </h4> </a>
-			    </div></center>
-		    </div>
-
-		    <div class="item"> <center>
-		    	<img src="/media/images/fondo2.png">
-			    <div class="carousel-caption">
-			    	<h4>BOOKSI</h4>
-			    </div></center>
-		    </div>
-
-		    <div class="item"> <center>
-		    	<img src="/media/images/fondo3.png">
-			    <div class="carousel-caption">
-			    	<h4>Contáctenos para más información</h4>
 			    </div></center>
 		    </div>
 		    
@@ -129,13 +113,7 @@
 					</div>
 				</div>
 				<div class="span3">
-					<div class="well sidebar-nav">
-		            		  <center><li class="nav-header"><h4>Redes sociales</h4></li></center>
-		            		  
-		            		  <p align="justify">
-		            	        <img src="/media/images/social_facebook.png"  width = "40px"  heigth = "40px">
-		            			<a href="https://www.facebook.com/booksiapp" target="_blank">LICEO</a>
-								<br>            			
+								<br>            	
 		            		  </p>
 		            		</ul>
 						</div><!--/.well -->
@@ -146,7 +124,7 @@
 				<br>
 				      <hr>
       <footer class="well" align="center">
-        &copy; SENA CTPI 2015 ADSI <b>661169</b>
+        &copy; NIKOLE ALEXANDRA CADENA <b>-LICEO ALEJABDRO DE HUMBOLTH</b>
       </footer>
 			</div>
 		</div> 
