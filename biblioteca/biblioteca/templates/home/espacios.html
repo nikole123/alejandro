@@ -30,7 +30,7 @@
 	{% if user.is_authenticated and user.is_staff and user.is_superuser %}
 		<a <a class="btn btn-info"  href= "/add/espacios/{{p.id}}"> <li class= "icon-plus"></li> Agregar espacio</a> 
 	{% endif %}
-	{% if espacios %}
+	{% if Espacios %}
 		<br>
 		<br>
 		<table class="table table-hover" id="tabla_productos">
