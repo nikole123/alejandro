@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'd9ovj7mgidp8n',                      # Or path to database file if using sqlite3.
+        'NAME': 'd4lclabrh7rq05',                      # Or path to database file if using sqlite3.
         'USER': 'osqancyenpthhp',
         'PASSWORD': 'S_f2afD_0-Bv_Hn56IjFJh5tQg',
         'HOST': 'ec2-54-197-238-19.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
