@@ -9,7 +9,7 @@ Administrador
 <div class= "alert alert-info">
   <div class="bs-docs-example">
     <ul id="myTab" class="nav nav-tabs">
-      <li class="active"><a href="#libros" data-toggle="tab"> <h4> Libros </h4></a></li>
+      <li class="active"><a href="#espacios" data-toggle="tab"> <h4> Espacios </h4></a></li>
       <li class=""><a href="#usuarios" data-toggle="tab"> <h4> Usuarios </h4> </a></li>
       <li class=""><a href="#bibliotecarios" data-toggle="tab"><h4> Bibliotecario</h4></a></li>
       <li class=""><a href="#prestamos" data-toggle="tab"><h4> Préstamos</h4></a></li>
@@ -19,18 +19,13 @@ Administrador
 
 
     <div id="myTabContent" class="tab-content">
-      <div class="tab-pane fade active in" id="libros">
-        <p>
-          <p><i class="icon-tasks  icon-black"> </i><a  href="{% url 'vista_editoriales'%}"> Editoriales </a></p>
-          <p><i class="icon-list-alt icon-black"> </i><a  href="{% url 'vista_categorias'%}"> Categorias </a></p>
-          <p><i class=" icon-user icon-black"></i> <a  href="{% url 'vista_autores'%}"> Autores </a></p>
+      <div class="tab-pane fade active in" id="espacios">
 
-          <p><i class=" icon-book icon-black"></i> <a  href="{% url 'vista_libros'%}"> Libros </a></p>
+          <p><i class=" icon-book icon-black"></i> <a  href="{% url 'vista_espacios'%}"> Espacios </a></p>
         </div>
         <div class="tab-pane fade" id="usuarios">
 
           <p><i class="icon-user icon-black"></i> <a href="{% url 'vista_tipos_usuarios' %}">Tipo de usuarios</a></p>
-          <p><i class="icon-road icon-black"></i> <a href="{% url 'vista_ciudades' %}">Ciudades</a></p>
           <p><i class=" icon-user icon-black"></i> <a href="{% url 'vista_usuarios' %}">Usuarios</a></p>
 
 
@@ -45,16 +40,12 @@ Administrador
         </div>
         <div class="tab-pane fade" id="consultas">
           <p><i class="icon-search icon-black"> </i><a  href="{% url 'vista_consultar_usuario_id' %}">Consultar usuario</a></p>
-          <p><i class="icon-search icon-black"> </i><a  href ="{% url 'vista_consultar_disponibles' %}">Consulta de libros título, autor o categoría</a></p>
-          <p><i class="icon-search icon-black"> </i><a  href ="{% url 'vista_consultar_codigo' %}">Consulta de libros por código</a></p>
-        
         </p>    
       </div>
 
       <div class="tab-pane fade" id="reportes">
           <p><i class="icon-list-alt icon-black"> </i><a  href="{% url 'vista_reporte_usuarios_mes' %}"> Reporte usuarios por mes </a></p>
-          <p><i class="icon-list-alt icon-black"> </i><a  href="{% url 'vista_reporte_libros_mes' %}"> Reporte libros por mes </a></p>
-          <p><i class="icon-list-alt icon-black"> </i><a  href="{% url 'vista_reporte_busqueda' %}"> Reporte de búsquedas </a></p>
+          
 
       </div>
 

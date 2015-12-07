@@ -53,6 +53,7 @@
 						<li><a href="{% url 'vista_administrar'%}">Administrador</a></li>
 					{% endif %}
 					{% if user.is_authenticated and user.usuario.tipo_usuario.nombre != "bibliotecario" %}
+						<li><a href="{% url 'vista_espacios'%}"> Espacios </a></li>
 						<li><a href="{% url 'vista_mis_reservas'%}">Mis reservas</a></li>
 					{% endif %}
 				</ul>
