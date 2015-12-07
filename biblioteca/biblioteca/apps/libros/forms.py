@@ -68,8 +68,7 @@ class add_usuario_form(forms.ModelForm):
 class add_tipo_usuario_form(forms.ModelForm):
 	class Meta:
 		model 	= Tipo_Usuario
-		#se excluye el status por que en el modelo lo ponemos default=True
-
+		
 
 
 class agregar_espacio_form (forms.ModelForm):
@@ -77,18 +76,9 @@ class agregar_espacio_form (forms.ModelForm):
 	fecha_publicacion = forms.DateField(widget = forms.TextInput(attrs={'id':'datepicker2'}), label='fecha_publicacion')
 	class Meta:
 		model = Espacio
-		#exclude = {"fecha_adquisicion" , "fecha_publicacion"}
-
-#biblioteca
-class agregar_biblioteca_form(forms.ModelForm):
-	class Meta:
-		model = Biblioteca
 
 
 
-
-
-#proyecto maria--------
 class RegisterForm(forms.Form):
 	username 	= forms.CharField(label = "Nombre de Usuario", widget = forms.TextInput())
 	email 		= forms.EmailField(label = "Correo Electronico", widget = forms.TextInput())
