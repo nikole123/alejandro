@@ -26,9 +26,7 @@ urlpatterns = patterns('biblioteca.apps.home.views',
 	url(r'^usuarios/$', 'usuarios_view', name = 'vista_usuarios'),
 	url(r'^usuario/(?P<id_usua>.*)/$', 'single_usuario_view', name = 'vista_single_usuario'),
 
-	#cuidad
-	url(r'^ciudades/$','ciudades_view', name= 'vista_ciudades'), 
-	url(r'^ciudad/(?P<id_ciu>.*)/$', 'single_ciudades_view', name = 'vista_single_ciudad'),
+	
 
 	#tipo_usuario
 	url(r'^tipos_usuarios/$','tipos_usuarios_view', name = 'vista_tipos_usuarios'),
