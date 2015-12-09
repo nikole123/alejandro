@@ -1,0 +1,15 @@
+{
+  "name": "alejandro",
+  "description": "gffgfg",
+  "scripts": {
+    "postdeploy": "ddf",
+    "pr-predestroy": "dfdfdf"
+  },
+  "env": {
+    "cvdv": "",
+    "cvv": ""
+  },
+  "addons": [
+
+  ]
+}
